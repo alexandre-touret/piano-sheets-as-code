@@ -1,8 +1,6 @@
 name: Generate Lilypond music sheets
 on:
   push:
-    paths:
-      - '**.ly'
     branches:
       - gh-pages
 jobs:
@@ -20,6 +18,10 @@ jobs:
       - name: LILYPOND files considered echo output
         run: |
           echo ${{ steps.getfile.outputs.files }}
+      - name: Login against github docker repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: docker login -u ${GITHUB_ACTOR} -p ${GITHUB_TOKEN} docker.pkg.github.com          
       - name: Generate PDF music sheets
         uses: alexandre-touret/lilypond-github-action@master
         with:
