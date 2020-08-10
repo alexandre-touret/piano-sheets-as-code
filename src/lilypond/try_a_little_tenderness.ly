@@ -3,7 +3,7 @@
 \header {
   title="Try a little tenderness"
   composer="Harry Woods, Jimmy Campbell & Reg Connely"
-  subtitle = "Version commitments"
+  subtitle = "Commitments Version"
   %poet = "Poete"
   instrument = "Piano"
   editor = "L'éditeur"

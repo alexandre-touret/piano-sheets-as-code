@@ -2,9 +2,9 @@ name: Generate Lilypond music sheets
 on:
   push:
     paths:
-      - '**.puml'
+      - '**.ly'
     branches:
-      - master
+      - gh-pages
 jobs:
   ci:
     runs-on: ubuntu-latest
