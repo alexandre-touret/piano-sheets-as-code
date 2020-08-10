@@ -21,7 +21,7 @@ jobs:
       - name: Generate PDF music sheets
         uses: alexandre-touret/lilypond-github-action@master
         with:
-            args: -V -f --pdf 
+            args: -V -f --pdf ${{ steps.getfile.outputs.files }}
       - name: Push Local Changes
         uses:  stefanzweifel/git-auto-commit-action@v4.1.2 
         with: 
