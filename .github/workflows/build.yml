@@ -1,0 +1,34 @@
+name: Generate Lilypond music sheets
+on:
+  push:
+    paths:
+      - '**.puml'
+    branches:
+      - master
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    env:
+        LILYPOND_FILES: ".ly"
+    steps:
+      - name: Checkout Source 
+        uses: actions/checkout@v1
+      - name: Get changed files
+        id: getfile
+        run: |
+          echo "::set-output name=files::$(git diff-tree -r --no-commit-id --name-only ${{ github.sha }} | grep ${{ env.LILYPOND_FILES }} | xargs)"
+      - name: LILYPOND files considered echo output
+        run: |
+          echo ${{ steps.getfile.outputs.files }}
+      - name: Generate PDF music sheets
+        uses: alexandre-touret/lilypond-github-action@master
+        with:
+            args: -V -f  ${{ steps.getfile.outputs.files }}
+      - name: Push Local Changes
+        uses:  stefanzweifel/git-auto-commit-action@v4.1.2 
+        with: 
+          commit_user_name: "my user name"
+          commit_user_email: "me@email.org"
+          commit_author: "My User <me@email.org>"
+          commit_message: "Generate PDF" 
+          branch: ${{ github.head_ref }}
