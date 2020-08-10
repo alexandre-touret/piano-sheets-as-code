@@ -4,7 +4,7 @@ on:
     branches:
       - gh-pages
 jobs:
-  ci:
+  build_sheets:
     runs-on: ubuntu-latest
     env:
         LILYPOND_FILES: ".ly"
