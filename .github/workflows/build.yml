@@ -25,8 +25,8 @@ jobs:
       - name: Push Local Changes
         uses:  stefanzweifel/git-auto-commit-action@v4.1.2 
         with: 
-          commit_user_name: "${{github.actor}}"
-          commit_user_email: "me@email.org"
-          commit_author: "My User <me@email.org>"
+          commit_user_name: My GitHub Actions Bot
+          commit_user_email: my-github-actions-bot@example.org
+          commit_author: Author <actions@github.com>
           commit_message: "Generate PDF" 
-          branch: ${{ github.head_ref }}
+          branch: ${{ github.ref }}
