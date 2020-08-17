@@ -29,4 +29,4 @@ jobs:
           commit_user_email: my-github-actions-bot@example.org
           commit_author: Author <actions@github.com>
           commit_message: "Generate PDF" 
-          branch: ${{ github.ref }}
+          branch: gh-pages
