@@ -21,7 +21,7 @@ jobs:
       - name: Generate PDF music sheets
         uses: alexandre-touret/lilypond-github-action@master
         with:
-            args: -V --fpdf --fpng --fmidi ${{ steps.getfile.outputs.files }}
+            args: -V -fpdf -fpng -fmidi ${{ steps.getfile.outputs.files }}
       - name: Push Local Changes
         run: |
           git config --local user.email "${{ secrets.GIT_USERNAME }}"
