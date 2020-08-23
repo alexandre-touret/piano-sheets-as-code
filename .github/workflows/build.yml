@@ -26,9 +26,10 @@ jobs:
         run: |
           git config --local user.email "${{ secrets.GIT_USERNAME }}"
           git config --local user.name "${{ secrets.GIT_EMAIL }}"
-          mv -f *.midi docs/
-          mv -f *.pdf docs/
-          git add docs/
+          mkdir ${{github.workspace}}/docs/
+          mv -f *.midi ${{github.workspace}}/docs/
+          mv -f *.pdf ${{github.workspace}}/docs/
+          git add ${{github.workspace}}/docs/
           git commit -m "Add changes" -a
       - name: Push changes
         uses: ad-m/github-push-action@master
