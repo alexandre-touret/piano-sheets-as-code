@@ -26,8 +26,8 @@ jobs:
         run: |
           git config --local user.email "${{ secrets.GIT_USERNAME }}"
           git config --local user.name "${{ secrets.GIT_EMAIL }}"
-          mv *.midi docs/
-          mv *.pdf docs/
+          mv -f *.midi docs/
+          mv -f *.pdf docs/
           git add docs/
           git commit -m "Add changes" -a
       - name: Push changes
