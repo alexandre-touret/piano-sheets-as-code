@@ -25,8 +25,8 @@ jobs:
       - name: Push Local Changes
         uses:  stefanzweifel/git-auto-commit-action@v4.1.2 
         with: 
-          commit_user_name: ${{secrets.GIT_USERNAME}}
-          commit_user_email: ${{secrets.GIT_EMAIL}}
-          commit_author: ${{secrets.GIT_USERNAME}} <${{secrets.GIT_EMAIL}}>
+          commit_user_name: "${{ secrets.GIT_USERNAME }}"
+          commit_user_email: "${{ secrets.GIT_EMAIL }}"
+          commit_author: "${{ secrets.GIT_USERNAME }} <${{ secrets.GIT_EMAIL }}>"
           commit_message: "Generate PDF" 
           branch: gh-pages
