@@ -21,7 +21,7 @@ jobs:
       - name: Generate PDF music sheets
         uses: alexandre-touret/lilypond-github-action@master
         with:
-            args: -V -f --pdf ${{ steps.getfile.outputs.files }}
+            args: -V --fpdf --fpng --fmidi ${{ steps.getfile.outputs.files }}
       - name: Push Local Changes
         run: |
           git config --local user.email "${{ secrets.GIT_USERNAME }}"
@@ -29,6 +29,7 @@ jobs:
           mkdir ${{github.workspace}}/docs/
           mv -f *.midi ${{github.workspace}}/docs/
           mv -f *.pdf ${{github.workspace}}/docs/
+          mv -f *.png ${{github.workspace}}/docs/
           git add ${{github.workspace}}/docs/
           git commit -m "Add changes" -a
       - name: Push changes
