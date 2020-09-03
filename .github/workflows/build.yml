@@ -26,7 +26,7 @@ jobs:
         run: |
           git config --local user.email "${{ secrets.GIT_USERNAME }}"
           git config --local user.name "${{ secrets.GIT_EMAIL }}"
-          mkdir ${{github.workspace}}/docs/
+          mkdir -p ${{github.workspace}}/docs/
           mv -f *.midi ${{github.workspace}}/docs/
           mv -f *.pdf ${{github.workspace}}/docs/
           mv -f *.png ${{github.workspace}}/docs/
